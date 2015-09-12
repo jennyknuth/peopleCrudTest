@@ -1,0 +1,25 @@
+<form action="/people/{{person._id}}/update" method="post">
+  <input type="text" name="name" value="{{person.name}}" required>
+  <input type="email" name="email" value="{{person.email}}" required>
+  <input type="tel" name="phone" value="{{person.phone}}">
+  <input type="text" name="address" value="{{person.address}}">
+  <input type="submit" value="Update Contact">
+</form>
+
+<h2>Addresses:</h2>
+{{#each addresses}}
+  <li>
+    {{address}}
+    <form action="/people/{{../person._id}}/addresses/{{_id}}/delete" method="post">
+      <input type="hidden" name="personId" value="{{../person._id}}">
+      <input type="submit" value="delete">
+    </form>
+  </li>
+{{/each}}
+
+Add another address:
+<form action="/people/{{person._id}}/addresses" method="post">
+  <input type="text" name="address" placeholder="">
+  <input type="hidden" name="personId" value="{{person._id}}">
+  <input type="submit" value="Add Address">
+</form>

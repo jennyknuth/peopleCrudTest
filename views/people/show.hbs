@@ -1,0 +1,26 @@
+<a href="/people"> back to all contacts </a>
+<h1>{{person.name}}</h1>
+<p>
+  email: {{person.email}}
+</p>
+<p>
+  phone: {{person.phone}}
+</p>
+<p>
+  address: {{person.address}}
+</p>
+
+{{#each addresses}}
+<p>
+  address: {{address}}
+</p>
+{{/each}}
+
+<form action="/people/{{person._id}}/edit" method="get">
+  <input type="submit" value="Edit">
+</form>
+<!-- <a href="/people/{{person._id}}/edit"><button type="button" name="button">edit</button></a> -->
+
+<form action="/people/{{person._id}}/delete" method="post">
+  <input type="submit" value="Delete">
+</form>

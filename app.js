@@ -10,6 +10,7 @@ var hbs = require('hbs')
 
 var routes = require('./routes/index');
 var people = require('./routes/people');
+var addresses = require('./routes/addresses');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/people', people);
+app.use('/people/:id/addresses', addresses);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

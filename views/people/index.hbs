@@ -1,0 +1,13 @@
+<h1>Contacts</h1>
+<a href="people/new">Add a contact</a>
+
+{{#each people}}
+
+<div class="contact">
+  <h2><a href="/people/{{_id}}">{{name}}</h2></a>
+  Email: {{email}}
+  Phone: {{phone}}
+  Address: {{address}}
+</div>
+
+{{/each}}
